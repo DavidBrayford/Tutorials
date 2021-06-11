@@ -2,7 +2,7 @@
 # Charliecloud tutorial introduction #
 In these exercises we will be working with Charliecloud HPC containers. Containers are an OS-level virtualization paradigm that allow multiple, isolated user environments to run concurrently. There are several different container technologies that address a variety of use cases and due to the Open Container Initiative (OCI), we can convert containers from one format to another.
 
-The first container technology that most people learn is Docker. Docker is designed in such a way that the IAM model does not map well to HPC systems. That is, you must have escalated privledges (root) in order to use it. Because of this, most HPC systems do not support Docker. However, there are multiple, alternative HPC container technologies such as Singularity, Charliecloud and Sarus that allow users to run Docker/OCI containers in userspace without admin privledges.
+The first container technology that most people learn is Docker. Docker is designed in such a way that the identity access management (IAM) model does not map well to HPC systems. That is, you must have escalated privledges (root) in order to use it. Because of this, most HPC systems do not support Docker. However, there are multiple, alternative HPC container technologies such as Singularity, Charliecloud and Sarus that allow users to run Docker/OCI containers in userspace without admin privledges.
 
 In these exercises, we will take Docker containers, convert them to Charliecloud containers and then run them on the cluster. 
 
@@ -29,22 +29,24 @@ $ sudo docker image ls
 | debian | stretch | de8b49d4b0b3 | 8 months ago | 101MB |
 
 Convert docker image to charliecloud on desktop
+```
 $ sudo ch-builder2tar image /dir/to/save
-
+```
 This creates the file /dir/to/save/image_name.tar.gz
 
 Copy the tar.gz file to the HPC system
 
 Exercises
 1.	Basic container
-a.	Mounting in the container directories from the host
-b.	Using applications and libraries from the host module system 
-c.	MPI helloworld example
+    1.	Mounting in the container directories from the host
+    2.	Using applications and libraries from the host module system 
+    3.	MPI helloworld example
 2.	TensorFlow container
-a.	Distributed training example with MPI
+    1.	Distributed training example with MPI
 3.	Julia based quantum gate simulator 
-a.	Setting the environment to the Docker environment
+    1.	Setting the environment to the Docker environment
 4.	oneAPI HPC container
-a.	Using LLVM compilers
-b.	Using profiling tools
+    1.	Using LLVM compilers
+    2.	Using profiling tools
+ 
 If time permitting a simple Cuda example for GPUs
