@@ -1,8 +1,8 @@
 # Exercise 1
 ## Simple container example
 1.	Download the CSCS archive file to your local system.
-2.	Go to the directory ……/CSCS/SimpleMPI
-3.	Open the file …../CSCS/SimpleMPI/Dockerfile with the editor of your choice.
+2.	Go to the directory ……/Dockerfiles/SimpleMPI
+3.	Open the file …../Dockerfiles/SimpleMPI/Dockerfile with the editor of your choice.
     1.	Examine the Dockerfile operations.
     2.	Modify the Dockerfile to copy the makefile into the /MPI_TESTS directory
 4.	Build a Docker image from the Dockerfile
