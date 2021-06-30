@@ -48,5 +48,6 @@ Exercises
 4.	oneAPI HPC container
     1.	Using LLVM compilers
     2.	Using profiling tools
- 
-If time permitting a simple Cuda example for GPUs
+5.	Cuda container
+    1.	Building and executing a simple Cuda example inside a container
+
