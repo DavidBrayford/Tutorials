@@ -46,19 +46,19 @@ This should display the file mpi_hello_world.c
 ```
 $ make
 ```
-11.	Execute the mpi_hello_world example
-```
-$ mpiexec -n 2 mpi_hello_world
-```
-12.	Exit the container
+11.	Exit the container
 ```
 $ exit
+```
+12.	Allocate 2 node for interactive computing
+```
+$ salloc -p debug -N 2 -C gpu -A class02 --time=00:10:00
 ```
 
 13.	Execute the mpi_hello_world from outside the container using the system MPI
 
 ```
-$ mpiexec -n 2 ch-run -w ./simple_mpi/ -- /MPI_TESTS/mpi_hello_world
+$ srun -N 2 ch-run -w ./simple_mpi/ -- /MPI_TESTS/mpi_hello_world
 ```
 
 14.	Mount the module system in the container
