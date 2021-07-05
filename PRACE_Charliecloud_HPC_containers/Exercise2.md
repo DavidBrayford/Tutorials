@@ -3,7 +3,7 @@
 1.	Go to the directory on the HPC system that contains the TensorFlow Charliecloud image 
 2.	Execute a simple Horovod TensorFlow example, which prints out the Horovod ranks.
 ```
-$ mpiexec -n 2 ch-run -w ./a408704d3f3d/ -- python /MPI_TEST/Horovod/simple_mpi.py
+$ srun -n 2 ch-run -w ./cscs_tensorflow_image/ -- python /MPI_TEST/Horovod/simple_mpi.py
 ```
 3.	Open the Slurm submission script file with the editor of your choice. That should look similar to :
 ```Shell
@@ -24,7 +24,7 @@ module load charliecloud
 export OMP_NUM_THREADS=8
 
 export KMP_AFFINITY=granularity=fine,verbose,compact,1,0
-mpiexec -n 2 ch-run -w /home/centos/ContainersHPC/a408704d3f3d --  python /tensorflow/benchmarks/scripts/tf_cnn_benchmarks/tf_cnn_benchmarks.py -
+srun ch-run -w /home/centos/ContainersHPC/cscs_tensorflow_image --  python /tensorflow/benchmarks/scripts/tf_cnn_benchmarks/tf_cnn_benchmarks.py -
 -model alexnet --batch_size 128 --data_format NCHW --num_batches 100 --distortions=False --mkl=True --local_parameter_device cpu --num_warmup_batches 10 --optimizer rmsprop --display_every 10 --variable_update horovod --horovod_device cpu --num_intra_threads 8 --kmp_blocktime 0 --num_inter_threads 2
 ```
 4.	Submit the slurm script to the system
