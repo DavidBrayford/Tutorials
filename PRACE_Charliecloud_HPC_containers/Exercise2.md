@@ -24,7 +24,7 @@ module load charliecloud
 export OMP_NUM_THREADS=8
 
 export KMP_AFFINITY=granularity=fine,verbose,compact,1,0
-srun ch-run -w /home/centos/ContainersHPC/cscs_tensorflow_image --  python /tensorflow/benchmarks/scripts/tf_cnn_benchmarks/tf_cnn_benchmarks.py -
+mpiexec -n 2 ch-run -w /home/centos/ContainersHPC/cscs_tensorflow_image --  python /tensorflow/benchmarks/scripts/tf_cnn_benchmarks/tf_cnn_benchmarks.py -
 -model alexnet --batch_size 128 --data_format NCHW --num_batches 100 --distortions=False --mkl=True --local_parameter_device cpu --num_warmup_batches 10 --optimizer rmsprop --display_every 10 --variable_update horovod --horovod_device cpu --num_intra_threads 8 --kmp_blocktime 0 --num_inter_threads 2
 ```
 4.	Submit the slurm script to the system
